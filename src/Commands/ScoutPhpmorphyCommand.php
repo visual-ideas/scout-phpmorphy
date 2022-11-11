@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace VI\ScoutPhpmorphy\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ScoutPhpmorphyCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'scout-phpmorphy';
 
     public $description = 'My command';
 
