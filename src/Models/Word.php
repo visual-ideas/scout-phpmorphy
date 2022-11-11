@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Word extends BaseModel
 {
-
     protected $fillable = [
         'word',
     ];
@@ -15,5 +14,4 @@ class Word extends BaseModel
     {
         return $this->hasMany(Link::class);
     }
-
 }

@@ -2,9 +2,9 @@
 
 namespace VI\ScoutPhpmorphy;
 
+use Laravel\Scout\EngineManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Laravel\Scout\EngineManager;
 use VI\ScoutPhpmorphy\Engines\ScoutPhpmorphyEngine;
 
 class ScoutPhpmorphyServiceProvider extends PackageServiceProvider
@@ -24,7 +24,6 @@ class ScoutPhpmorphyServiceProvider extends PackageServiceProvider
 
     public function boot()
     {
-
         parent::boot();
 
         resolve(EngineManager::class)->extend('phpmorphy', function () {
