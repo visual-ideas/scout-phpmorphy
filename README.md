@@ -1,9 +1,9 @@
 # This is my package scout-phpmorphy
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vi/scout-phpmorphy.svg?style=flat-square)](https://packagist.org/packages/vi/scout-phpmorphy)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vi/scout-phpmorphy/run-tests?label=tests)](https://github.com/vi/scout-phpmorphy/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/vi/scout-phpmorphy/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/vi/scout-phpmorphy/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/vi/scout-phpmorphy.svg?style=flat-square)](https://packagist.org/packages/vi/scout-phpmorphy)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/visual-ideas/scout-phpmorphy.svg?style=flat-square)](https://packagist.org/packages/visual-ideas/scout-phpmorphy)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/visual-ideas/scout-phpmorphy/run-tests?label=tests)](https://github.com/visual-ideas/scout-phpmorphy/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/visual-ideas/scout-phpmorphy/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/visual-ideas/scout-phpmorphy/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/visual-ideas/scout-phpmorphy.svg?style=flat-square)](https://packagist.org/packages/visual-ideas/scout-phpmorphy)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
@@ -22,7 +22,7 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require vi/scout-phpmorphy
+composer require visual-ideas/scout-phpmorphy
 ```
 
 You can publish and run the migrations with:
@@ -44,6 +44,7 @@ This is the contents of the published config file:
 return [
 ];
 ```
+
 <!---
 Optionally, you can publish the views using
 

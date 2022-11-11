@@ -4,7 +4,8 @@ namespace VI\ScoutPhpmorphy;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VI\ScoutPhpmorphy\Commands\ScoutPhpmorphyCommand;
+use Laravel\Scout\EngineManager;
+use VI\ScoutPhpmorphy\Engines\ScoutPhpmorphyEngine;
 
 class ScoutPhpmorphyServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +19,16 @@ class ScoutPhpmorphyServiceProvider extends PackageServiceProvider
         $package
             ->name('scout-phpmorphy')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_scout-phpmorphy_table')
-            ->hasCommand(ScoutPhpmorphyCommand::class);
+            ->hasMigrations(['create_phpmorphy_words_table', 'create_phpmorphy_links_table']);
+    }
+
+    public function boot()
+    {
+
+        parent::boot();
+
+        resolve(EngineManager::class)->extend('phpmorphy', function () {
+            return new ScoutPhpmorphyEngine;
+        });
     }
 }

@@ -1,9 +1,10 @@
 {
-    "name": "vi/scout-phpmorphy",
+    "name": "visual-ideas/scout-phpmorphy",
     "description": "This is my package scout-phpmorphy",
     "keywords": [
-        "vi",
+        "VisualIdeas",
         "laravel",
+        "scout",
         "scout-phpmorphy"
     ],
     "homepage": "https://github.com/visual-ideas/scout-phpmorphy",
@@ -17,8 +18,9 @@
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.13.0",
-        "illuminate/contracts": "^9.0"
+        "illuminate/contracts": "^9.0",
+        "laravel/scout": "^9.4",
+        "spatie/laravel-package-tools": "^1.13.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -59,7 +61,7 @@
                 "VI\\ScoutPhpmorphy\\ScoutPhpmorphyServiceProvider"
             ],
             "aliases": {
-                "ScoutPhpmorphy": "VI\\ScoutPhpmorphy\\Facades\\ScoutPhpmorphy"
+                "ScoutPhpmorphy": "ScoutPhpmorphyEngine"
             }
         }
     },
