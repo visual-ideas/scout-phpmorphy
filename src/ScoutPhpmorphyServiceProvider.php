@@ -11,6 +11,7 @@ class ScoutPhpmorphyServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
+
         /*
          * This class is a Package Service Provider
          *
@@ -19,7 +20,8 @@ class ScoutPhpmorphyServiceProvider extends PackageServiceProvider
         $package
             ->name('scout-phpmorphy')
             ->hasConfigFile()
-            ->hasMigrations(['create_phpmorphy_words_table', 'create_phpmorphy_links_table']);
+            ->hasMigrations(['create_phpmorphy_words_table', 'create_phpmorphy_index_table']);
+
     }
 
     public function boot()
