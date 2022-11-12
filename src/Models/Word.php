@@ -17,7 +17,7 @@ class Word extends Model
 
     public function getTable()
     {
-        return config('scout-phpmorphy.table_prefix').'words';
+        return config('scout-phpmorphy.table_prefix') . 'words';
     }
 
     protected $fillable = [
@@ -46,8 +46,7 @@ class Word extends Model
     public static function getItems($array): Collection
     {
         $items = new Collection;
-
-        if (! empty($array)) {
+         if (! empty($array)) {
             $items = self::query()
                 ->when(array_filter($array, fn ($word) => $word['is_dictionary']),
                     fn (Builder $query, $words) => $query->whereIn('word', collect($words)->pluck('word')))
@@ -61,6 +60,21 @@ class Word extends Model
                     })
                 ->get();
         }
+
+        /*
+        if (!empty($array)) {
+            $items = self::query();
+
+            foreach ($array as $word) {
+                $word['word'] = trim($word['word']);
+                if (!empty($word['word'])) {
+                    $items = $items->orWhere('word', 'LIKE', $word['word'] . '%');
+                }
+            }
+
+            $items = $items->get();
+        }
+         */
 
         return $items;
     }

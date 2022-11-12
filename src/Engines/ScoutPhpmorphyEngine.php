@@ -54,6 +54,7 @@ class ScoutPhpmorphyEngine extends Engine
 
     public function paginate(Builder $builder, $perPage, $page)
     {
+
         $index = $this->buildIndexQuery($builder)
             ->selectRaw('`index`, `key`, COUNT(*) AS `count_lines`, SUM(`count_words`) AS `sum_count_words`')
             ->groupBy('index', 'key')
@@ -70,7 +71,6 @@ class ScoutPhpmorphyEngine extends Engine
 
     public function map(Builder $builder, $results, $model)
     {
-        dd($builder);
 
         if ($results->isEmpty()) {
             return $model->newCollection();
