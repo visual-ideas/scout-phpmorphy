@@ -2,11 +2,8 @@
 
 namespace VI\ScoutPhpmorphy\Services;
 
-use cijic\phpMorphy\Facade\Morphy;
-
 class WordsService
 {
-
     public static function prepareString(string $string)
     {
         $words = StringService::toArray($string);
@@ -28,9 +25,9 @@ class WordsService
         });
         $words = ArrayService::flatten($words);
         $words = collect($words)
-            ->map(fn($word) => str($word)->upper()->trim()->toString())
+            ->map(fn ($word) => str($word)->upper()->trim()->toString())
             ->filter()
-            ->filter(fn($word) => str($word)->length() >= 2);
+            ->filter(fn ($word) => str($word)->length() >= 2);
 
         $morphy = new \cijic\phpMorphy\Morphy();
 
@@ -38,7 +35,7 @@ class WordsService
             $array = [
                 [
                     'is_dictionary' => false,
-                    'word'          => $word,
+                    'word' => $word,
                 ],
             ];
             if ($morphyWord = $morphy->getPseudoRoot($word)) {
@@ -46,10 +43,11 @@ class WordsService
                 foreach ($morphyWord as $morphyWordNew) {
                     $array[] = [
                         'is_dictionary' => true,
-                        'word'          => $morphyWordNew,
+                        'word' => $morphyWordNew,
                     ];
                 }
             }
+
             return $array;
         });
 
@@ -68,7 +66,7 @@ class WordsService
         foreach ($temp as $wordItems) {
             $wordItems['word'] = trim($wordItems['word']);
             if ($wordItems['word']) {
-                if (!isset($words[$wordItems['word']])) {
+                if (! isset($words[$wordItems['word']])) {
                     $words[$wordItems['word']] = $wordItems;
                     $words[$wordItems['word']]['count'] = 0;
                 }

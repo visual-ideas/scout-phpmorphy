@@ -2,19 +2,16 @@
 
 namespace VI\ScoutPhpmorphy\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Index extends Model
 {
-
     public $timestamps = false;
 
     public function getTable()
     {
-        return config('scout-phpmorphy.table_prefix') . 'index';
+        return config('scout-phpmorphy.table_prefix').'index';
     }
 
     protected $fillable = [
@@ -24,10 +21,8 @@ class Index extends Model
         'count_words',
     ];
 
-
     public function word(): BelongsTo
     {
         return $this->belongsTo(Word::class);
     }
-
 }
