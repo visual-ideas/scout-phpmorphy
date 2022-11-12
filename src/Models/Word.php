@@ -17,7 +17,7 @@ class Word extends Model
 
     public function getTable()
     {
-        return config('scout-phpmorphy.table_prefix') . 'words';
+        return config('scout-phpmorphy.table_prefix').'words';
     }
 
     protected $fillable = [
@@ -46,7 +46,7 @@ class Word extends Model
     public static function getItems($array): Collection
     {
         $items = new Collection;
-         if (! empty($array)) {
+        if (! empty($array)) {
             $items = self::query()
                 ->when(array_filter($array, fn ($word) => $word['is_dictionary']),
                     fn (Builder $query, $words) => $query->whereIn('word', collect($words)->pluck('word')))
