@@ -2,31 +2,27 @@
 
 namespace VI\ScoutPhpmorphy\Engines;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Laravel\Scout\Builder;
 use Laravel\Scout\Engines\Engine;
-use Illuminate\Database\Eloquent\Collection;
 use VI\ScoutPhpmorphy\Models\Index;
 use VI\ScoutPhpmorphy\Models\Word;
-use VI\ScoutPhpmorphy\Services\ArrayService;
-use VI\ScoutPhpmorphy\Services\StringService;
 use VI\ScoutPhpmorphy\Services\WordsService;
 
 class ScoutPhpmorphyEngine extends Engine
 {
-
     public function update($models): Collection
     {
-
         $models->each(function ($model) use (&$params) {
             $words = WordsService::prepareArray($model->toSearchableArray());
             $words = Word::getOrCreateItems($words);
 
             foreach ($words as $word) {
                 Index::firstOrCreate([
-                    'index'       => $model->searchableAs(),
-                    'key'         => $model->getScoutKey(),
-                    'word_id'     => $word->id,
+                    'index' => $model->searchableAs(),
+                    'key' => $model->getScoutKey(),
+                    'word_id' => $word->id,
                     'count_words' => $word->count_words,
                 ]);
             }
@@ -47,7 +43,6 @@ class ScoutPhpmorphyEngine extends Engine
 
     public function search(Builder $builder)
     {
-
         $index = $this->buildIndexQuery($builder)
             ->selectRaw('`index`, `key`, COUNT(*) AS `count_lines`, SUM(`count_words`) AS `sum_count_words`')
             ->groupBy('index', 'key')
@@ -55,7 +50,6 @@ class ScoutPhpmorphyEngine extends Engine
             ->get();
 
         return $index;
-
     }
 
     public function paginate(Builder $builder, $perPage, $page)
@@ -72,12 +66,10 @@ class ScoutPhpmorphyEngine extends Engine
     public function mapIds($results)
     {
         dd(__METHOD__);
-
     }
 
     public function map(Builder $builder, $results, $model)
     {
-
         dd($builder);
 
         if ($results->isEmpty()) {
@@ -91,14 +83,11 @@ class ScoutPhpmorphyEngine extends Engine
         )->get()->keyBy($model->getKeyName());
 
         return $models;
-
     }
 
     public function getTotalCount($results)
     {
-
         return $results->total();
-
     }
 
     public function flush($model)
@@ -134,5 +123,4 @@ class ScoutPhpmorphyEngine extends Engine
 
         return $query;
     }
-
 }
