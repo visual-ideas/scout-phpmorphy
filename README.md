@@ -42,6 +42,11 @@ This is the contents of the published config file:
 
 ```php
 return [
+
+    'table_prefix' => 'phpmorphy_',
+
+    'min_word_length' => 2,
+
 ];
 ```
 
@@ -51,7 +56,6 @@ Optionally, you can publish the views using
 ```bash
 php artisan vendor:publish --tag="scout-phpmorphy-views"
 ```
--->
 
 ## Usage
 
@@ -59,6 +63,7 @@ php artisan vendor:publish --tag="scout-phpmorphy-views"
 $scoutPhpmorphy = new VI\ScoutPhpmorphy();
 echo $scoutPhpmorphy->echoPhrase('Hello, VI!');
 ```
+-->
 
 <!---
 ## Testing
