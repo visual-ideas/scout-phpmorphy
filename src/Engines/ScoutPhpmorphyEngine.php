@@ -23,7 +23,7 @@ class ScoutPhpmorphyEngine extends Engine
                     'index' => $model->searchableAs(),
                     'key' => $model->getScoutKey(),
                     'word_id' => $word->id,
-                ],[
+                ], [
                     'count_words' => $word->count_words,
                 ]);
             }
