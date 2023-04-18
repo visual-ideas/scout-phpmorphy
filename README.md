@@ -57,6 +57,8 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="scout-phpmorphy-views"
 ```
 
+    'driver' => env('SCOUT_DRIVER', 'phpmorphy'),
+
 ## Usage
 
 ```php
