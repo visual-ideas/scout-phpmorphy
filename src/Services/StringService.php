@@ -8,6 +8,6 @@ class StringService
     {
         $string = strip_tags($string);
 
-        return preg_split('/((^\p{P}+)|(\p{P}*\s+\p{P}*)|(\p{P}+$))/', $string);
+        return preg_split('/((^\p{P}+)|(\p{P}*\s+\p{P}*)|(\p{P}+$))|\-/', $string);
     }
 }
