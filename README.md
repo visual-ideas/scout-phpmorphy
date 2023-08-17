@@ -1,4 +1,4 @@
-# This is my package scout-phpmorphy
+# UNDER CONSTRUCTION package scout-phpmorphy
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/visual-ideas/scout-phpmorphy.svg?style=flat-square)](https://packagist.org/packages/visual-ideas/scout-phpmorphy)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/visual-ideas/scout-phpmorphy/run-tests?label=tests)](https://github.com/visual-ideas/scout-phpmorphy/actions?query=workflow%3Arun-tests+branch%3Amain)
